@@ -18,8 +18,8 @@ CREATE TABLE "discs" (
 "mold" VARCHAR (50) NOT NULL,
 "sleepy_scale" VARCHAR (50) NOT NULL,
 "price" DECIMAL (10,2) NOT NULL,
-"inserted_at" TIMESTAMP NOT NULL DEFAULT now(),
-"updated_at" TIMESTAMP NOT NULL DEFAULT now(),
+"inserted_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
+"updated_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
 "img_path" VARCHAR (5000) NOT NULL,
 "sold" BOOLEAN DEFAULT FALSE,
 "seller_id" INT REFERENCES "user"
