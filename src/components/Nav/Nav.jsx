@@ -36,6 +36,10 @@ function Nav() {
              Browse
             </Link>
 
+            <Link className="navLink" to="/sellDisc">
+             Sell Disc
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}

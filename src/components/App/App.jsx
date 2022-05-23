@@ -21,6 +21,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import BrowsePage from '../BrowsePage/BrowsePage';
+import DiscForm from '../DiscForm/DiscForm';
 
 import './App.css';
 
@@ -78,6 +79,14 @@ function App() {
               path="/browse"
             >
               <BrowsePage />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/sellDisc"
+            >
+              <DiscForm />
             </ProtectedRoute>
 
             <Route
