@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import DiscItem from '../DiscItem/DiscItem';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -29,18 +30,9 @@ function BrowsePage() {
         <ul>
             <Grid container spacing={2}>
                 {discs.map((disc) => {
-                    return(
-                        <Grid item xs={4}>
-                        <li key={disc.id}>
-                        <p>Manufactuer: {disc.manufacturer}</p>
-                        <p>Mold: {disc.mold}</p>
-                        <p>Price: {disc.price}</p>
-                        <p>Sleepy Scale: {disc.sleepy_scale}</p>
-                        <img src={disc.img_path} width='100' />
-                        <p> Username: {disc.username}</p>
-                    </li>
-                    </Grid>
-                    ) 
+                    return (
+                           <DiscItem key={disc.disc_id} disc={disc}/>  
+                    )
                 })}
             </Grid>
         </ul>
