@@ -11,7 +11,8 @@ const router = express.Router();
  router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('req.user', req.user)
     const sqlQuery = `
-      SELECT * FROM "discs";
+    SELECT * FROM discs
+    JOIN "user" ON discs.seller_id = "user".id;;
     `
     pool.query(sqlQuery)
       .then((dbRes) => {

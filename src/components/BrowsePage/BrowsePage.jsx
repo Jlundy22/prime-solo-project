@@ -20,7 +20,14 @@ function BrowsePage() {
     return (
       <ul>
         {discs.map((disc) => {
-          return <li key={disc.id}>{disc.mold}</li>
+          return <li key={disc.id}>
+              <p>Manufactuer: {disc.manufacturer}</p>
+              <p>Mold: {disc.mold}</p>
+              <p>Price: {disc.price}</p>
+              <p>Sleepy Scale: {disc.sleepy_scale}</p>
+              <img src={disc.img_path} width='100' />
+              <p> Username: {disc.username}</p>
+              </li>
         })}
       </ul>
     );
