@@ -22,6 +22,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import BrowsePage from '../BrowsePage/BrowsePage';
 import DiscForm from '../DiscForm/DiscForm';
+import SearchAppBar from '../Nav/NavBar';
+import MyDiscs from '../MyDiscs/MyDiscs';
 
 import './App.css';
 
@@ -38,8 +40,9 @@ function App() {
     <React.Fragment>
       <CssBaseline />
       <Router>
+      < SearchAppBar />
         <div>
-          <Nav />
+          {/* <Nav /> */}
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -87,6 +90,14 @@ function App() {
               path="/sellDisc"
             >
               <DiscForm />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/myDiscs"
+            >
+              <MyDiscs />
             </ProtectedRoute>
 
             <Route

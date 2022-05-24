@@ -35,8 +35,8 @@ router.post('/', (req, res) => {
     `
     const sqlValues = [
       req.body.newDiscItem.manufacturer,
-      req.body.newDiscItem.sleepyScale,
       req.body.newDiscItem.mold,
+      req.body.newDiscItem.sleepyScale,
       req.body.newDiscItem.price,
       req.body.newDiscItem.image,
       req.user.id
