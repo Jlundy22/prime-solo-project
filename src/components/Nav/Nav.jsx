@@ -40,6 +40,8 @@ function Nav() {
              Sell Disc
             </Link>
 
+            
+
             <LogOutButton className="navLink" />
           </>
         )}

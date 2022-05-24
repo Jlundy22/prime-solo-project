@@ -1,0 +1,32 @@
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Grid from '@mui/material/Grid';
+
+function MyDiscItem({ disc }) {
+    //   const dispatch = useDispatch();
+
+    //   function handleDelete() {
+    //     dispatch({
+    //       type: 'DELETE_ITEM',
+    //       payload: item.id,
+    //     });
+    //   }
+
+    const handleClick = () => {
+        console.log('clicked',disc.disc_id)
+    }
+    return (
+        <Grid  item xs={4}>
+        <li onClick={handleClick} >
+            <p>Manufactuer: {disc.manufacturer}</p>
+            <p>Mold: {disc.mold}</p>
+            <p>Price: ${disc.price}</p>
+            <p>Sleepy Scale: {disc.sleepy_scale}</p>
+            <img src={disc.img_path} width='100' />
+        </li>
+        </Grid>
+    );
+}
+
+export default MyDiscItem;

@@ -12,15 +12,13 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import HomeIcon from '@mui/icons-material/Home';
 import { useHistory } from 'react-router-dom';
-import PetsIcon from '@mui/icons-material/Pets';
-import YardIcon from '@mui/icons-material/Yard';
-import GamepadIcon from '@mui/icons-material/Gamepad';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -124,12 +122,22 @@ function SearchAppBar() {
         history.push('/browse');
         setAnchorEl(null);
     };
+
+    const handleMyDiscsClick = () => {
+        // Tell React Router where to take us:
+        history.push('/myDiscs');
+        setAnchorEl(null);
+    };
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const handleSearchSubmit = () => {
+        console.log('search')
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -160,7 +168,7 @@ function SearchAppBar() {
                                     Sell Disc
                                 </MenuItem>
                                 <MenuItem onClick={handleBrowseClick} disableRipple>
-                                    <ContactsIcon />
+                                    <ShoppingBagIcon />
                                     Browse
                                 </MenuItem>
                                 <Divider sx={{ my: 0.5 }} />
@@ -169,8 +177,12 @@ function SearchAppBar() {
                                     Report Issue
                                 </MenuItem>
                                 <MenuItem onClick={handleProfileClick} disableRipple>
-                                    <HomeIcon />
-                                    Home
+                                    <AccountBoxIcon />
+                                    Profile
+                                </MenuItem>
+                                <MenuItem onClick={handleMyDiscsClick} disableRipple>
+                                    <AccountBoxIcon />
+                                    My Discs
                                 </MenuItem>
                             </StyledMenu>
                         </div>
@@ -182,7 +194,8 @@ function SearchAppBar() {
                     >
                         Drop Zone
                     </Typography>
-                    <Search>
+                    <form onSubmit={handleSearchSubmit}>
+                    <Search >
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
@@ -191,6 +204,7 @@ function SearchAppBar() {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
+                    </form>
                 </Toolbar>
             </AppBar>
         </Box>
