@@ -24,11 +24,33 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-/**
- * POST route template
- */
 router.post('/', (req, res) => {
-  // POST route code here
-});
+  if (req.isAuthenticated()) {
+    console.log('******** in browse,router',req.body.newDiscItem)
+    const sqlQuery = `
+    INSERT INTO "discs" (
+      "manufacturer","mold","sleepy_scale","price","img_path","seller_id"
+      )
+      VALUES($1, $2, $3, $4, $5, $6 );
+    `
+    const sqlValues = [
+      req.body.newDiscItem.manufacturer,
+      req.body.newDiscItem.sleepyScale,
+      req.body.newDiscItem.mold,
+      req.body.newDiscItem.price,
+      req.body.newDiscItem.image,
+      req.user.id
+    ]
+    pool.query(sqlQuery, sqlValues)
+      .then((dbRes) => {
+        res.sendStatus(201)
+      })
+      .catch((dbErr) => {
+        res.sendStatus(500)
+      })
+  } else {
+    res.sendStatus(401)
+  }
+})
 
 module.exports = router;

@@ -13,10 +13,12 @@ function DiscItem({ disc }) {
     //     });
     //   }
 
+    const handleClick = () => {
+        console.log('clicked',disc.disc_id)
+    }
     return (
         <Grid  item xs={4}>
-        <li >
-            {disc.disc_id}
+        <li onClick={handleClick} >
             <p>Manufactuer: {disc.manufacturer}</p>
             <p>Mold: {disc.mold}</p>
             <p>Price: {disc.price}</p>

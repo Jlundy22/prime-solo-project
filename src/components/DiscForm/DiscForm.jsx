@@ -2,6 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 const manufacturers = [
     {
@@ -45,18 +48,65 @@ const scale = [
     },
 ];
 
+
+
 function DiscForm() {
     const [manufacturer, setManufacturer] = React.useState('');
     const [sleepyScale, setSleepyScale] = React.useState('');
+    const [mold, setMold] = React.useState('');
+    const [price, setPrice] = React.useState('');
+    const [image, setImage] = React.useState('');
+    const dispatch = useDispatch();
     const handleManufacturerChange = (event) => {
+        event.preventDefault();
         setManufacturer(event.target.value);
     };
     const handleScaleChange = (event) => {
+        event.preventDefault();
         setSleepyScale(event.target.value);
     };
 
+    const handleMoldChange = (event) => {
+        event.preventDefault();
+        setMold(event.target.value);
+    };
+    const handlePriceChange = (event) => {
+        event.preventDefault();
+        setPrice(event.target.value);
+    };
+    const handleImageChange = (event) => {
+        event.preventDefault();
+        setImage(event.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        let newDiscItem = {
+            manufacturer,
+            sleepyScale,
+            mold,
+            price: Number(price),
+            image, 
+        };
+        console.log(newDiscItem);
+
+        dispatch({
+          type: 'CREATE_DISC_ITEM',
+          payload: { newDiscItem }
+        });
+
+        setManufacturer('');
+        setSleepyScale('');
+        setMold('');
+        setPrice('');
+        setImage('');
+      };
+    
+
 
     return (
+        
         <Box
             component="form"
             sx={{
@@ -87,7 +137,8 @@ function DiscForm() {
                         required
                         id="outlined-required"
                         label="Mold"
-                     defaultValue=" "
+                        value={mold}
+                        onChange={handleMoldChange}
                     />
                 </div>
                 <div>
@@ -115,17 +166,23 @@ function DiscForm() {
                     InputLabelProps={{
                         shrink: true,
                     }}
+                    value={price}
+                    onChange={handlePriceChange}
                 />
             </div>
             <div>
-                    <TextField
-                        required
-                        id="outlined-required"
-                        label="Image URL"
-                     defaultValue=" "
-                    />
-                </div>
+                <TextField
+                    required
+                    id="outlined-required"
+                    label="Image URL"
+
+                    value={image}
+                    onChange={handleImageChange}
+                />
+            </div>
+            <Button onClick={handleSubmit}  variant="contained">Submit</Button>
         </Box>
+        
     )
 }
 
