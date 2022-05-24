@@ -22,6 +22,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import BrowsePage from '../BrowsePage/BrowsePage';
 import DiscForm from '../DiscForm/DiscForm';
+import SearchAppBar from '../Nav/NavBar';
 
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
     <React.Fragment>
       <CssBaseline />
       <Router>
+      < SearchAppBar />
         <div>
           <Nav />
           <Switch>
