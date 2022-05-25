@@ -1,4 +1,4 @@
-import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { put, takeEvery, } from 'redux-saga/effects';
 import axios from 'axios';
 
 
@@ -30,23 +30,12 @@ function* createDiscItem(action) {
   })
 }
 
-function* deleteDiscItem(action) {
-  console.log('**** in deleteDiscItem saga')
-try {
-  const item = yield axios.delete(`/api/myDiscs/${action.payload}`);
-  yield put({
-    type: 'FETCH_DISCS',
-  });
-} catch {
-  console.log('DELETE disc error');
-}
-}
+
 
 
 function* browseSaga() {
   yield takeEvery('FETCH_DISCS', fetchDiscs);
    yield takeEvery('CREATE_DISC_ITEM', createDiscItem);
-   yield takeLatest('DELETE_DISC', deleteDiscItem);
 }
 
 export default browseSaga;
