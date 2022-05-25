@@ -23,6 +23,18 @@ router.get('/',  (req, res) => {
     })
 });
 
+router.delete('/:id', (req, res) => {
+    const sqlQuery = 'DELETE FROM discs WHERE disc_id=$1';
+    pool
+      .query(sqlQuery, [req.params.id])
+      .then((response) => {
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        console.log('Error in /api/myDiscs DELETE request:', error);
+      });
+  });
+
 // router.post('/', (req, res) => {
 //   if (req.isAuthenticated()) {
 //     console.log('******** in myDiscs,router',req.body.newDiscItem)
