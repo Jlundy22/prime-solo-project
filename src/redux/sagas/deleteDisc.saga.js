@@ -7,7 +7,7 @@ function* deleteDiscItem(action) {
 try {
   const item = yield axios.delete(`/api/myDiscs/${action.payload}`);
   yield put({
-    type: 'FETCH_DISCS',
+    type: 'FETCH_MY_DISCS',
   });
 } catch {
   console.log('DELETE disc error');
