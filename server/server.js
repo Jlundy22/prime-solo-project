@@ -11,6 +11,8 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const browseRouter = require('./routes/browse.router');
 const myDiscRouter = require('./routes/myDiscs.router');
+const editDiscRouter = require('./routes/editDisc.router');
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +28,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/browse', browseRouter);
 app.use('/api/myDiscs', myDiscRouter);
+app.use('/api/editDisc', editDiscRouter);
 
 // Serve static files
 app.use(express.static('build'));

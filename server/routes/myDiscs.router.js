@@ -23,6 +23,23 @@ router.get('/',  (req, res) => {
     })
 });
 
+// router.get('/:id',  (req, res) => {
+//   console.log('IN edit get route', req.params.id)
+//   const sqlQuery = `
+//   SELECT * FROM discs
+//   JOIN "user" ON discs.seller_id = "user".id
+//   WHERE "disc_id" = $1;
+//     `
+//   pool.query(sqlQuery, [req.params.id])
+//     .then((dbRes) => {
+//       res.send(dbRes.rows);
+//     })
+//     .catch((dbErr) => {
+//       console.log('ERROR in GET /api/browse', dbErr);
+//       res.sendStatus(500);
+//     })
+// });
+
 router.delete('/:id', (req, res) => {
     const sqlQuery = 'DELETE FROM discs WHERE disc_id=$1';
     pool
@@ -38,15 +55,21 @@ router.delete('/:id', (req, res) => {
   router.put('/:id', (req, res) => {
     console.log(req.body)
     const sqlText = `
-      UPDATE students 
-        SET 
-          github_name = $1,
-          current_status = $2
-        WHERE id = $3;
+    UPDATE "discs" 
+    SET
+    "manufacturer" = $1,
+    "mold" = $2,
+    "sleepy_scale" = $3,
+    "price" = $4,
+    "img_path" = $5
+    WHERE "disc_id" = $6;
     `;
     const sqlValues = [
-      req.body.githubName,
-      req.body.currentStatus,
+      req.body.manufacturer,
+      req.body.mold,
+      req.body.sleepy_scale,
+      req.body.price,
+      req.body.img_path,
       req.params.id
     ];
     

@@ -19,12 +19,9 @@ function MyDiscItem({ disc }) {
         });
     }
 
-    const handleClick = (disc) => {
-        console.log('clicked', disc.disc_id)
-    }
     return (
         <Grid item xs={4}>
-            <li onClick={handleClick} >
+            <li >
                 <p>Manufactuer: {disc.manufacturer}</p>
                 <p>Mold: {disc.mold}</p>
                 <p>Price: ${disc.price}</p>
@@ -33,7 +30,7 @@ function MyDiscItem({ disc }) {
                 <Button onClick={handleDelete} variant="outlined" startIcon={<DeleteIcon />}>
                     Delete Disc
                 </Button>
-                <Button onClick={() => history.push(`/edit/${disc.id}`)} variant="outlined">
+                <Button onClick={() => history.push(`/edit/${disc.disc_id}`)} variant="outlined">
                     Edit
                 </Button>
 

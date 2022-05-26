@@ -4,7 +4,10 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+
 
 const manufacturers = [
     {
@@ -51,6 +54,20 @@ const scale = [
 
 
 function MyDiscEditForm() {
+
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_ONE_DISC',
+            payload: discId
+        })
+    }, [])
+
+    const editDisc = useSelector(store => store.editDisc);
+    console.log('*********',editDisc);
+
+    const params = useParams();
+    const discId = params.id;
+
     const [manufacturer, setManufacturer] = React.useState('');
     const [sleepyScale, setSleepyScale] = React.useState('');
     const [mold, setMold] = React.useState('');
@@ -87,13 +104,13 @@ function MyDiscEditForm() {
             sleepyScale,
             mold,
             price: Number(price),
-            image, 
+            image,
         };
         console.log(newDiscItem);
 
         dispatch({
-          type: 'CREATE_DISC_ITEM',
-          payload: { newDiscItem }
+            type: 'CREATE_DISC_ITEM',
+            payload: { newDiscItem }
         });
 
         setManufacturer('');
@@ -101,12 +118,12 @@ function MyDiscEditForm() {
         setMold('');
         setPrice('');
         setImage('');
-      };
-    
+    };
+
 
 
     return (
-        
+
         <Box
             component="form"
             sx={{
@@ -115,6 +132,7 @@ function MyDiscEditForm() {
             noValidate
             autoComplete="off"
         >
+            <p>hello{editDisc.mold}</p>
             <div>
                 <div>
                     <TextField
@@ -180,9 +198,9 @@ function MyDiscEditForm() {
                     onChange={handleImageChange}
                 />
             </div>
-            <Button onClick={handleSubmit}  variant="contained">Submit</Button>
+            <Button onClick={handleSubmit} variant="contained">Submit</Button>
         </Box>
-        
+
     )
 }
 
