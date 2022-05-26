@@ -19,6 +19,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { useHistory } from 'react-router-dom';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import Brightness1Icon from '@mui/icons-material/Brightness1';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -181,7 +182,7 @@ function SearchAppBar() {
                                     Profile
                                 </MenuItem>
                                 <MenuItem onClick={handleMyDiscsClick} disableRipple>
-                                    <AccountBoxIcon />
+                                    <Brightness1Icon />
                                     My Discs
                                 </MenuItem>
                             </StyledMenu>

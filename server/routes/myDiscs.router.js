@@ -35,6 +35,31 @@ router.delete('/:id', (req, res) => {
       });
   });
 
+  router.put('/:id', (req, res) => {
+    console.log(req.body)
+    const sqlText = `
+      UPDATE students 
+        SET 
+          github_name = $1,
+          current_status = $2
+        WHERE id = $3;
+    `;
+    const sqlValues = [
+      req.body.githubName,
+      req.body.currentStatus,
+      req.params.id
+    ];
+    
+    pool.query(sqlText, sqlValues)
+      .then((dbRes) => {
+        res.sendStatus(200);
+      })
+      .catch((dbErr) => {
+        console.log('UPDATE database error', dbErr);
+        res.sendStatus(500);
+      });
+  });
+
 // router.post('/', (req, res) => {
 //   if (req.isAuthenticated()) {
 //     console.log('******** in myDiscs,router',req.body.newDiscItem)
