@@ -99,7 +99,12 @@ function DiscForm() {
           type: 'CREATE_DISC_ITEM',
           payload: { newDiscItem }
         });
-        history.push('/myDiscs');
+        //delaying reroute to my discs to 
+        //allow time for redux to be set
+        setTimeout(() => {
+            history.push('/myDiscs');
+          }, "500")
+        
 
 
 
