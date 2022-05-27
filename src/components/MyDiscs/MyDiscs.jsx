@@ -25,11 +25,14 @@ function MyDiscs() {
     const dispatch = useDispatch();
 
     const myDiscs = useSelector(store => store.myDiscs);
+    const searchResults = useSelector(store => store.searchResults);
+
+    const displayResults = (searchResults.length > 0) ? searchResults : discs;
 
     return (
         <ul>
             <Grid container spacing={2}>
-                {myDiscs.map((disc) => {
+                {displayResults.map((disc) => {
                     return (
                            <MyDiscItem key={disc.disc_id} disc={disc}/>  
                     )

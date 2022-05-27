@@ -2,6 +2,9 @@ import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { useSelector, useDispatch} from 'react-redux';
+
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -43,7 +46,34 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function SearchBar({ searchType }) {
-    console.log(searchType);
+    const dispatch = useDispatch();
+    const discs = useSelector(store => store.discs);
+    const myDiscs = useSelector(store => store.myDiscs);
+
+    function handleInputChange() {
+        const discArray = [];
+        if (searchType === "searchAll") {
+            for (let i = 0; i < discs.length; i++) {
+                const disc = discs[i];
+                if (disc.mold.toLowerCase().includes(event.target.value)) {
+                    discArray.push(disc);
+                }
+            }
+        } else {
+            for (let i = 0; i < myDiscs.length; i++) {
+                const disc = myDiscs[i];
+                if (disc.mold.toLowerCase().includes(event.target.value)) {
+                    discArray.push(disc);
+                }
+            }
+        }
+
+        dispatch({
+            type: 'SEARCH_RESULTS',
+            payload: discArray
+        });
+    }
+    
     const placeholderText = (searchType === 'searchAll') ? 'Browse All Discs' : 'Browse My Discs';
     return (
         <Search >
@@ -53,6 +83,7 @@ function SearchBar({ searchType }) {
             <StyledInputBase
                 placeholder={placeholderText}
                 inputProps={{ 'aria-label': 'search' }}
+                onChange={handleInputChange}
             />
         </Search>
     )
