@@ -3,8 +3,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 
 const manufacturers = [
     {
@@ -51,6 +53,8 @@ const scale = [
 
 
 function DiscForm() {
+    const history = useHistory();
+
     const [manufacturer, setManufacturer] = React.useState('');
     const [sleepyScale, setSleepyScale] = React.useState('');
     const [mold, setMold] = React.useState('');
@@ -95,6 +99,9 @@ function DiscForm() {
           type: 'CREATE_DISC_ITEM',
           payload: { newDiscItem }
         });
+        history.push('/myDiscs');
+
+
 
         setManufacturer('');
         setSleepyScale('');
