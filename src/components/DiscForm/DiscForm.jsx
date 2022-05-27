@@ -40,7 +40,7 @@ const scale = [
         value: '6- Typical used disc with the usual dings, scratches but still worthy'
     },
     {
-        value: "5- Kinda beat, significant wear, has lost a good bit of it's stability"
+        value: "5- Kinda beat, significant wear, has lost a good bit of its stability"
     },
     {
         value: '4 - Beat up turnover disc with some evident war story wear'
