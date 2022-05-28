@@ -67,7 +67,9 @@ function SearchBar({ searchType }) {
                 }
             }
         }
-
+        if (discArray.length === 0 ) {
+            discArray.push('noResults');
+         }
         dispatch({
             type: 'SEARCH_RESULTS',
             payload: discArray
