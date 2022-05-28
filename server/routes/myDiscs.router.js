@@ -7,7 +7,6 @@ const router = express.Router();
 
 
 router.get('/',  (req, res) => {
-  console.log('req.user', req.user)
   const sqlQuery = `
   SELECT * FROM discs
   JOIN "user" ON discs.seller_id = "user".id
@@ -53,7 +52,6 @@ router.delete('/:id', (req, res) => {
   });
 
   router.put('/:id', (req, res) => {
-    console.log(req.body)
     const sqlText = `
     UPDATE "discs" 
     SET

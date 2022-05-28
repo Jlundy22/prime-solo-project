@@ -12,13 +12,21 @@ function MyDiscItem({ disc }) {
 
 
     function handleDelete() {
-        console.log('Delete', disc.disc_id)
         dispatch({
             type: 'DELETE_DISC',
             payload: disc.disc_id,
         });
     }
-
+    function fetchEditPage(id) {
+        dispatch({
+            type: 'FETCH_ONE_DISC',
+            payload: id
+        });
+        setTimeout(() => {
+            history.push(`/edit/${id}`);
+          }, "100")
+         
+    }
     return (
         <Grid item xs={4}>
             <li >
@@ -30,7 +38,7 @@ function MyDiscItem({ disc }) {
                 <Button onClick={handleDelete} variant="outlined" startIcon={<DeleteIcon />}>
                     Delete Disc
                 </Button>
-                <Button onClick={() => history.push(`/edit/${disc.disc_id}`)} variant="outlined">
+                <Button onClick={() => fetchEditPage(disc.disc_id)} variant="outlined">
                     Edit
                 </Button>
 

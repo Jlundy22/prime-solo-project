@@ -9,7 +9,6 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
-  console.log('req.user', req.user)
   const sqlQuery = `
     SELECT * FROM discs
     JOIN "user" ON discs.seller_id = "user".id;;
@@ -26,7 +25,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
-    console.log('******** in browse,router',req.body.newDiscItem)
     const sqlQuery = `
     INSERT INTO "discs" (
       "manufacturer","mold","sleepy_scale","price","img_path","seller_id"
@@ -34,11 +32,11 @@ router.post('/', (req, res) => {
       VALUES($1, $2, $3, $4, $5, $6 );
     `
     const sqlValues = [
-      req.body.newDiscItem.manufacturer,
-      req.body.newDiscItem.mold,
-      req.body.newDiscItem.sleepyScale,
-      req.body.newDiscItem.price,
-      req.body.newDiscItem.image,
+      req.body.manufacturer,
+      req.body.mold,
+      req.body.sleepyScale,
+      req.body.price,
+      req.body.image,
       req.user.id
     ]
     pool.query(sqlQuery, sqlValues)

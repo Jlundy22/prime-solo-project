@@ -8,7 +8,6 @@ const router = express.Router();
 
 
 router.get('/:id',  (req, res) => {
-  console.log('IN edit get route', req.params.id)
   const sqlQuery = `
   SELECT * FROM discs
   JOIN "user" ON discs.seller_id = "user".id
@@ -40,10 +39,10 @@ router.get('/:id',  (req, res) => {
     const sqlValues = [
       req.body.manufacturer,
       req.body.mold,
-      req.body.sleepy_scale,
+      req.body.sleepyScale,
       req.body.price,
-      req.body.img_path,
-      req.params.id
+      req.body.image,
+      Number(req.params.id)
     ];
     
     pool.query(sqlText, sqlValues)

@@ -92,17 +92,15 @@ function DiscForm() {
             price: Number(price),
             image, 
         };
-        console.log(newDiscItem);
-
         dispatch({
           type: 'CREATE_DISC_ITEM',
-          payload: { newDiscItem }
+          payload: newDiscItem 
         });
         //delaying reroute to my discs to 
         //allow time for redux to be set
         setTimeout(() => {
             history.push('/myDiscs');
-          }, "500")
+          }, "100")
         
 
 

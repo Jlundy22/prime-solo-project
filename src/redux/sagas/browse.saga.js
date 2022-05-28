@@ -3,7 +3,6 @@ import axios from 'axios';
 
 
 function* fetchDiscs(action) {
-  console.log('in fetch disc saga')
   // HTTP GET discs
   const response = yield axios({
     method: 'GET',
@@ -17,7 +16,6 @@ function* fetchDiscs(action) {
 }
 
 function* createDiscItem(action) {
-  console.log('**************************',action.payload);
   // POST newDiscITem to our server and put it in db:
   const response = yield axios({
     method: 'POST',

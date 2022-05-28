@@ -41,7 +41,7 @@ const scale = [
         value: '6- Typical used disc with the usual dings, scratches but still worthy'
     },
     {
-        value: "5- Kinda beat, significant wear, has lost a good bit of it's stability"
+        value: "5- Kinda beat, significant wear, has lost a good bit of its stability"
     },
     {
         value: '4 - Beat up turnover disc with some evident war story wear'
@@ -51,29 +51,19 @@ const scale = [
     },
 ];
 
-
-
 function MyDiscEditForm() {
-
-    useEffect(() => {
-        dispatch({
-            type: 'FETCH_ONE_DISC',
-            payload: discId
-        })
-    }, [])
-
+    const history = useHistory();
     const editDisc = useSelector(store => store.editDisc);
-    console.log('*********',editDisc);
-
     const params = useParams();
     const discId = params.id;
+    const [manufacturer, setManufacturer] = React.useState(editDisc[0].manufacturer);
+    const [sleepyScale, setSleepyScale] = React.useState(editDisc[0].sleepy_scale);
+    const [mold, setMold] = React.useState(editDisc[0].mold);
+    const [price, setPrice] = React.useState(editDisc[0].price);
+    const [image, setImage] = React.useState(editDisc[0].img_path);
 
-    const [manufacturer, setManufacturer] = React.useState('');
-    const [sleepyScale, setSleepyScale] = React.useState('');
-    const [mold, setMold] = React.useState('');
-    const [price, setPrice] = React.useState('');
-    const [image, setImage] = React.useState('');
     const dispatch = useDispatch();
+
     const handleManufacturerChange = (event) => {
         event.preventDefault();
         setManufacturer(event.target.value);
@@ -105,25 +95,20 @@ function MyDiscEditForm() {
             mold,
             price: Number(price),
             image,
+            discId
         };
-        console.log(newDiscItem);
 
         dispatch({
-            type: 'CREATE_DISC_ITEM',
-            payload: { newDiscItem }
+            type: 'EDITED_DISC',
+            payload: newDiscItem 
         });
-
-        setManufacturer('');
-        setSleepyScale('');
-        setMold('');
-        setPrice('');
-        setImage('');
+        setTimeout(() => {
+            history.push('/myDiscs');
+          }, "100")
+        
     };
 
-
-
     return (
-
         <Box
             component="form"
             sx={{
@@ -132,7 +117,6 @@ function MyDiscEditForm() {
             noValidate
             autoComplete="off"
         >
-            <p>hello{editDisc.mold}</p>
             <div>
                 <div>
                     <TextField

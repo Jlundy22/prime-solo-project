@@ -99,7 +99,6 @@ function NavBar() {
         isVisible = true;
         searchType = 'searchAll'
     }
-    console.log(isVisible, searchType)
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
