@@ -1,8 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-
-
 function* fetchMyDiscs(action) {
     // HTTP GET discs
     const response = yield axios({
@@ -14,7 +12,7 @@ function* fetchMyDiscs(action) {
       type: 'SET_MY_DISCS',
       payload: response.data
     })
-  }
+  };
 
   function* myDiscsSaga() {
     yield takeEvery('FETCH_MY_DISCS', fetchMyDiscs);

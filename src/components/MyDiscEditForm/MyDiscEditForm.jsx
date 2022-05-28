@@ -3,8 +3,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 
 
 const manufacturers = [
@@ -49,17 +51,19 @@ const scale = [
     },
 ];
 
-
-
-function DiscForm() {
+function MyDiscEditForm() {
     const history = useHistory();
+    const editDisc = useSelector(store => store.editDisc);
+    const params = useParams();
+    const discId = params.id;
+    const [manufacturer, setManufacturer] = React.useState(editDisc[0].manufacturer);
+    const [sleepyScale, setSleepyScale] = React.useState(editDisc[0].sleepy_scale);
+    const [mold, setMold] = React.useState(editDisc[0].mold);
+    const [price, setPrice] = React.useState(editDisc[0].price);
+    const [image, setImage] = React.useState(editDisc[0].img_path);
 
-    const [manufacturer, setManufacturer] = React.useState('');
-    const [sleepyScale, setSleepyScale] = React.useState('');
-    const [mold, setMold] = React.useState('');
-    const [price, setPrice] = React.useState('');
-    const [image, setImage] = React.useState('');
     const dispatch = useDispatch();
+
     const handleManufacturerChange = (event) => {
         event.preventDefault();
         setManufacturer(event.target.value);
@@ -90,32 +94,21 @@ function DiscForm() {
             sleepyScale,
             mold,
             price: Number(price),
-            image, 
+            image,
+            discId
         };
+
         dispatch({
-          type: 'CREATE_DISC_ITEM',
-          payload: newDiscItem 
+            type: 'EDITED_DISC',
+            payload: newDiscItem 
         });
-        //delaying reroute to my discs to 
-        //allow time for redux to be set
         setTimeout(() => {
             history.push('/myDiscs');
           }, "100")
         
-
-
-
-        setManufacturer('');
-        setSleepyScale('');
-        setMold('');
-        setPrice('');
-        setImage('');
-      };
-    
-
+    };
 
     return (
-        
         <Box
             component="form"
             sx={{
@@ -189,11 +182,11 @@ function DiscForm() {
                     onChange={handleImageChange}
                 />
             </div>
-            <Button onClick={handleSubmit}  variant="contained">Submit</Button>
+            <Button onClick={handleSubmit} variant="contained">Submit</Button>
         </Box>
-        
+
     )
 }
 
 
-export default DiscForm;
+export default MyDiscEditForm;

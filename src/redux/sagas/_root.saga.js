@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import browseSaga from './browse.saga';
 import myDiscsSaga from './myDiscs.saga';
 import deleteDiscSaga from './deleteDisc.saga';
+import editDiscsSaga from './editDisc.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -20,6 +21,7 @@ export default function* rootSaga() {
     userSaga(),
     browseSaga(),
     myDiscsSaga(),
-    deleteDiscSaga()
+    deleteDiscSaga(),
+    editDiscsSaga()
   ]);
 }

@@ -15,6 +15,7 @@ import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import { useHistory } from 'react-router-dom';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import Brightness1Icon from '@mui/icons-material/Brightness1';
 import SearchBar from '../SearchBar/SearchBar';
 
 const StyledMenu = styled((props) => (
@@ -98,7 +99,6 @@ function NavBar() {
         isVisible = true;
         searchType = 'searchAll'
     }
-    console.log(isVisible, searchType)
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -142,7 +142,7 @@ function NavBar() {
                                     Profile
                                 </MenuItem>
                                 <MenuItem onClick={handleMyDiscsClick} disableRipple>
-                                    <AccountBoxIcon />
+                                    <Brightness1Icon />
                                     My Discs
                                 </MenuItem>
                             </StyledMenu>
