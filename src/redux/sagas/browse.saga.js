@@ -3,6 +3,7 @@ import axios from 'axios';
 
 
 function* fetchDiscs(action) {
+  console.log('in fetch disc saga')
   // HTTP GET discs
   const response = yield axios({
     method: 'GET',

@@ -25,15 +25,23 @@ function BrowsePage() {
     const dispatch = useDispatch();
 
     const discs = useSelector(store => store.discs);
+    const searchResults = useSelector(store => store.searchResults);
+
+    const displayResults = (searchResults.length > 0) ? searchResults : discs;
+    const displayNoResults = (searchResults[0] === 'noResults') ? true : false ;
 
     return (
         <ul>
             <Grid container spacing={2}>
-                {discs.map((disc) => {
-                    return (
-                           <DiscItem key={disc.disc_id} disc={disc}/>  
-                    )
-                })}
+                {(displayResults.length > 0) && (displayResults[0] !== 'noResults') &&
+                    displayResults.map((disc) => {
+                        return (
+                                <DiscItem key={disc.disc_id} disc={disc}/>  
+                        )
+                    })}
+                    {displayNoResults && 
+                        <div className='no-results'>No Results</div>
+                    }
             </Grid>
         </ul>
     );

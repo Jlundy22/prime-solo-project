@@ -3,8 +3,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 
 const manufacturers = [
     {
@@ -38,7 +39,7 @@ const scale = [
         value: '6- Typical used disc with the usual dings, scratches but still worthy'
     },
     {
-        value: "5- Kinda beat, significant wear, has lost a good bit of it's stability"
+        value: "5- Kinda beat, significant wear, has lost a good bit of its stability"
     },
     {
         value: '4 - Beat up turnover disc with some evident war story wear'
@@ -51,6 +52,8 @@ const scale = [
 
 
 function DiscForm() {
+    const history = useHistory();
+
     const [manufacturer, setManufacturer] = React.useState('');
     const [sleepyScale, setSleepyScale] = React.useState('');
     const [mold, setMold] = React.useState('');
@@ -95,6 +98,14 @@ function DiscForm() {
           type: 'CREATE_DISC_ITEM',
           payload: { newDiscItem }
         });
+        //delaying reroute to my discs to 
+        //allow time for redux to be set
+        setTimeout(() => {
+            history.push('/myDiscs');
+          }, "500")
+        
+
+
 
         setManufacturer('');
         setSleepyScale('');
