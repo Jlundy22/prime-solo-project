@@ -117,3 +117,18 @@ input {
   font-size: 20px;
   text-decoration: underline;
 }
+ul {
+  list-style-type: none;
+}
+
+.Grid {
+  outline: auto;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.deatailPage {
+  padding-top: 50px;
+  margin-left: 50px;
+
+}
