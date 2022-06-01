@@ -9,7 +9,7 @@ function Details() {
             <p>Price: ${disc.price}</p>
             <p>Sleepy Scale: {disc.sleepy_scale}</p>
             <img src={disc.img_path} width='100' />
-            <p>Contact Info: email@email.com </p>
+            <p>Contact Info: {disc.username}@email.com </p>
         </div>
     )
 }

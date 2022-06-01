@@ -35,7 +35,7 @@ function* createDiscItem(action) {
 
 function* browseSaga() {
   yield takeEvery('FETCH_DISCS', fetchDiscs);
-   yield takeEvery('CREATE_DISC_ITEM', createDiscItem);
+  yield takeEvery('CREATE_DISC_ITEM', createDiscItem);
 }
 
 export default browseSaga;
