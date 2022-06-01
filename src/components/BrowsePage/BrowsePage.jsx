@@ -32,7 +32,7 @@ function BrowsePage() {
 
     return (
         <ul>
-            <Grid container spacing={2}>
+            <Grid  container spacing={1}>
                 {(displayResults.length > 0) && (displayResults[0] !== 'noResults') &&
                     displayResults.map((disc) => {
                         return (

@@ -28,7 +28,7 @@ function MyDiscItem({ disc }) {
          
     }
     return (
-        <Grid item xs={4}>
+        <Grid className='Grid' item xs={4}>
             <li >
                 <p>Manufactuer: {disc.manufacturer}</p>
                 <p>Mold: {disc.mold}</p>

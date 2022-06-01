@@ -25,6 +25,7 @@ import DiscForm from '../DiscForm/DiscForm';
 import SearchAppBar from '../Nav/NavBar';
 import MyDiscs from '../MyDiscs/MyDiscs';
 import MyDiscEditForm from '../MyDiscEditForm/MyDiscEditForm';
+import Details from '../Details/Details';
 
 import './App.css';
 
@@ -106,6 +107,13 @@ function App() {
               path="/edit/:id"
             >
               <MyDiscEditForm />
+            </ProtectedRoute>
+
+            <ProtectedRoute
+              exact
+              path="/details/:id"
+            >
+              <Details />
             </ProtectedRoute>
 
             <Route

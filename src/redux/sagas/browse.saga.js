@@ -16,6 +16,7 @@ function* fetchDiscs(action) {
 }
 
 function* createDiscItem(action) {
+  console.log(action.payload);
   // POST newDiscITem to our server and put it in db:
   const response = yield axios({
     method: 'POST',
