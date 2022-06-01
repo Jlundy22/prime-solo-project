@@ -119,16 +119,31 @@ input {
 }
 ul {
   list-style-type: none;
+  padding-left: 15px;
+  padding-right: 10px;
+
 }
 
 .Grid {
   outline: auto;
-  padding-left: 20px;
+  padding: 0px;
+  margin: 0px;
   cursor: pointer;
+  text-align: center;
 }
 
-.deatailPage {
+.detailPage {
   padding-top: 50px;
   margin-left: 50px;
 
+}
+
+.pageHeader {
+  text-align: center;
+}
+
+.my-disc {
+  outline: auto;
+  padding: 0px;
+  margin: 0px;
 }

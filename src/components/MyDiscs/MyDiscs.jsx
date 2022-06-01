@@ -32,6 +32,7 @@ function MyDiscs() {
 
     return (
         <ul>
+            <h1 className='pageHeader'>My Discs</h1>
             <Grid container spacing={1}>
                 {(displayResults.length > 0) && (displayResults[0] !== 'noResults') &&
                  displayResults.map((disc) => {

@@ -9,16 +9,55 @@ import { useHistory } from 'react-router-dom';
 
 const manufacturers = [
     {
-        value: 'Innova'
+        value: 'Axiom'
     },
     {
-        value: 'Discraft'
+        value: 'DGA'
     },
     {
         value: 'Discmania'
     },
     {
+        value: 'Discraft'
+    },
+    {
+        value: 'Dynamic Discs'
+    },
+    {
+        value: 'Gateway'
+    },
+    {
+        value: 'Innova'
+    },
+    {
         value: 'Infinite Discs'
+    },
+    {
+        value: 'Kastaplast'
+    },
+    {
+        value: 'Latitude 64'
+    },
+    {
+        value: 'Millennium'
+    },
+    {
+        value: 'MVP'
+    },
+    {
+        value: 'Prodiscus'
+    },
+    {
+        value: 'Prodigy'
+    },
+    {
+        value: 'Streamline'
+    },
+    {
+        value: 'Thought Space Athletics'
+    },
+    {
+        value: 'Westside-Discs'
     },
 ];
 

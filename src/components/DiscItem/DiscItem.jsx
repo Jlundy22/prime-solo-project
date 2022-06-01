@@ -21,14 +21,14 @@ function DiscItem({ disc }) {
           }, "100")
     }
     return (
-        <Grid className='Grid' item xs={4}>
+        <Grid className='Grid' item xs={2}>
         <li onClick={handleClick} >
             <p> {disc.manufacturer} {disc.mold}</p>
             {/* <p> {disc.mold}</p> */}
-            <p>Price: ${disc.price}</p>
             {/* <p>Sleepy Scale: {disc.sleepy_scale}</p> */}
             <img src={disc.img_path} width='100' />
             {/* <p> Username: {disc.username}</p> */}
+            <p>Price: ${disc.price}</p>
         </li>
         </Grid>
     );
