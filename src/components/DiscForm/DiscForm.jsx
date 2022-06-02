@@ -162,6 +162,7 @@ function DiscForm() {
             }}
             noValidate
             autoComplete="off"
+            className='pageHeader'
         >
             <div>
                 <div>

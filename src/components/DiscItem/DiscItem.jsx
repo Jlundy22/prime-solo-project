@@ -21,7 +21,7 @@ function DiscItem({ disc }) {
           }, "100")
     }
     return (
-        <Grid className='Grid' item xs={2}>
+        <Grid className='Grid' item xs={6}>
         <li onClick={handleClick} >
             <p> {disc.manufacturer} {disc.mold}</p>
             {/* <p> {disc.mold}</p> */}

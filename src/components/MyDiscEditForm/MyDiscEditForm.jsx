@@ -11,55 +11,16 @@ import { useParams, useHistory } from 'react-router-dom';
 
 const manufacturers = [
     {
-        value: 'Axiom'
-    },
-    {
-        value: 'DGA'
-    },
-    {
-        value: 'Discmania'
+        value: 'Innova'
     },
     {
         value: 'Discraft'
     },
     {
-        value: 'Dynamic Discs'
-    },
-    {
-        value: 'Gateway'
-    },
-    {
-        value: 'Innova'
+        value: 'Discmania'
     },
     {
         value: 'Infinite Discs'
-    },
-    {
-        value: 'Kastaplast'
-    },
-    {
-        value: 'Latitude 64'
-    },
-    {
-        value: 'Millennium'
-    },
-    {
-        value: 'MVP'
-    },
-    {
-        value: 'Prodiscus'
-    },
-    {
-        value: 'Prodigy'
-    },
-    {
-        value: 'Streamline'
-    },
-    {
-        value: 'Thought Space Athletics'
-    },
-    {
-        value: 'Westside-Discs'
     },
 ];
 
