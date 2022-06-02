@@ -20,6 +20,7 @@ Container
 
 .container {
   padding: 20px;
+  text-align: center;
 }
 
 /* --------------------------------------------------------------------------------
@@ -146,4 +147,8 @@ ul {
   outline: auto;
   padding: 0px;
   margin: 0px;
+}
+
+.Typography {
+  text-align: center;
 }

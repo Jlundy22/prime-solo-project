@@ -148,6 +148,7 @@ function NavBar() {
                             </StyledMenu>
                         </div>
                     <Typography
+                        className='Typography'
                         variant="h6"
                         noWrap
                         component="div"
