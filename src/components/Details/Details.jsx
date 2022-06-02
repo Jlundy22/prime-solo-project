@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function Details() {
     const disc = useSelector(store => store.editDisc);
-    let email = `mailto:${disc.username}@gmail.com?subject=Drop Zone sale
+    let email = `mailto:${disc.username}@email.com?subject=Drop Zone sale
     &body=Hello I am Interested in buying your ${disc.manufacturer} ${disc.mold} for $${disc.price}! `
     return (
         <div className='detailPage'>

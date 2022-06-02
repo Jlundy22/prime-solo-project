@@ -36,10 +36,10 @@ function MyDiscItem({ disc }) {
                 <p>Price: ${disc.price}</p>
                 <p>Sleepy Scale: {disc.sleepy_scale}</p>
                 <img src={disc.img_path} width='100' />
-                <Button onClick={handleDelete} variant="outlined" startIcon={<DeleteIcon />}>
+                <Button className='myDiscButton' onClick={handleDelete}  startIcon={<DeleteIcon />}>
                 
                 </Button>
-                <Button onClick={() => fetchEditPage(disc.disc_id)} variant="outlined" startIcon={<EditIcon />}>
+                <Button className='myDiscButton' onClick={() => fetchEditPage(disc.disc_id)}  startIcon={<EditIcon />}>
                     
                 </Button>
 

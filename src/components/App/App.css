@@ -151,5 +151,9 @@ ul {
 }
 
 .Typography {
-  text-align: center;
+  text-align:inherit;
+  
+}
+.myDiscButton {
+  margin: 10px;
 }
