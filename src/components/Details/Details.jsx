@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function Details() {
     const disc = useSelector(store => store.editDisc);
-    let email = `mailto:${disc.username}@gmail.com`
+    let email = `mailto:${disc.username}@gmail.com?subject=Drop Zone sale
+    &body=Hello I am Interested in buying your ${disc.manufacturer} ${disc.mold} for $${disc.price}! `
     return (
         <div className='detailPage'>
             <p>Manufactuer: {disc.manufacturer}</p>
@@ -12,7 +13,7 @@ function Details() {
             <p>Sleepy Scale: {disc.sleepy_scale}</p>
             <img src={disc.img_path} width='100' />
             <p>Seller: {disc.username} </p>
-            <a href={email}>Conatact Seller</a>  
+            <a href={email}>Contact Seller</a>  
         </div>
     )
 }
