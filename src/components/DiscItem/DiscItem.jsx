@@ -18,7 +18,7 @@ function DiscItem({ disc }) {
         });
         setTimeout(() => {
             history.push(`/details/${disc.disc_id}`);
-          }, "100")
+          }, "300")
     }
     return (
         <Grid className='Grid' item xs={6}>

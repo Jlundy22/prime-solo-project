@@ -104,7 +104,7 @@ function MyDiscEditForm() {
         });
         setTimeout(() => {
             history.push('/myDiscs');
-          }, "100")
+          }, "300")
         
     };
 

@@ -20,7 +20,7 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <p>
+          <p >
             Drop Zone is a one stop shop for buying and selling discs. 
           </p>
 

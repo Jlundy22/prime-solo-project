@@ -18,6 +18,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Brightness1Icon from '@mui/icons-material/Brightness1';
 import SearchBar from '../SearchBar/SearchBar';
 
+
 const StyledMenu = styled((props) => (
     <Menu
         elevation={0}
