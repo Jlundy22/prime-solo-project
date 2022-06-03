@@ -23,7 +23,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated,(req, res) => {
   if (req.isAuthenticated()) {
     const sqlQuery = `
     INSERT INTO "discs" (

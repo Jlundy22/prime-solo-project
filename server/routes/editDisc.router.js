@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 
-router.get('/:id',  (req, res) => {
+router.get('/:id',rejectUnauthenticated,  (req, res) => {
   const sqlQuery = `
   SELECT * FROM discs
   JOIN "user" ON discs.seller_id = "user".id
@@ -24,7 +24,7 @@ router.get('/:id',  (req, res) => {
 });
 
 
-  router.put('/:id', (req, res) => {
+  router.put('/:id',rejectUnauthenticated, (req, res) => {
     console.log(req.body)
     const sqlText = `
     UPDATE "discs" 

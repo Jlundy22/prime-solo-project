@@ -39,7 +39,7 @@ router.get('/',  (req, res) => {
 //     })
 // });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',rejectUnauthenticated, (req, res) => {
     const sqlQuery = 'DELETE FROM discs WHERE disc_id=$1';
     pool
       .query(sqlQuery, [req.params.id])
