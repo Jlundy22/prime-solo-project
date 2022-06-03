@@ -16,6 +16,7 @@ import { useHistory } from 'react-router-dom';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Brightness1Icon from '@mui/icons-material/Brightness1';
+import InfoIcon from '@mui/icons-material/Info';
 import SearchBar from '../SearchBar/SearchBar';
 
 
@@ -85,6 +86,11 @@ function NavBar() {
         history.push('/myDiscs');
         setAnchorEl(null);
     };
+    const handleAboutClick = () => {
+        // Tell React Router where to take us:
+        history.push('/about');
+        setAnchorEl(null);
+    };
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -134,9 +140,9 @@ function NavBar() {
                                     Browse
                                 </MenuItem>
                                 <Divider sx={{ my: 0.5 }} />
-                                <MenuItem onClick={handleClose} disableRipple>
-                                    <ReportProblemIcon />
-                                    Report Issue
+                                <MenuItem onClick={handleAboutClick} disableRipple>
+                                    <InfoIcon />
+                                    About
                                 </MenuItem>
                                 <MenuItem onClick={handleProfileClick} disableRipple>
                                     <AccountBoxIcon />
