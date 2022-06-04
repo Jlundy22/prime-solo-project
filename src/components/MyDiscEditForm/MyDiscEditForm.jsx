@@ -11,16 +11,55 @@ import { useParams, useHistory } from 'react-router-dom';
 
 const manufacturers = [
     {
-        value: 'Innova'
+        value: 'Axiom'
     },
     {
-        value: 'Discraft'
+        value: 'DGA'
     },
     {
         value: 'Discmania'
     },
     {
+        value: 'Discraft'
+    },
+    {
+        value: 'Dynamic Discs'
+    },
+    {
+        value: 'Gateway'
+    },
+    {
+        value: 'Innova'
+    },
+    {
         value: 'Infinite Discs'
+    },
+    {
+        value: 'Kastaplast'
+    },
+    {
+        value: 'Latitude 64'
+    },
+    {
+        value: 'Millennium'
+    },
+    {
+        value: 'MVP'
+    },
+    {
+        value: 'Prodiscus'
+    },
+    {
+        value: 'Prodigy'
+    },
+    {
+        value: 'Streamline'
+    },
+    {
+        value: 'Thought Space Athletics'
+    },
+    {
+        value: 'Westside-Discs'
     },
 ];
 
@@ -104,7 +143,7 @@ function MyDiscEditForm() {
         });
         setTimeout(() => {
             history.push('/myDiscs');
-          }, "300")
+          }, 100)
         
     };
 
@@ -118,7 +157,7 @@ function MyDiscEditForm() {
             autoComplete="off"
         >
             <div>
-                <div>
+                <Box textAlign='center'>
                     <TextField
                         required
                         id="outlined-select-manufacturer"
@@ -133,8 +172,8 @@ function MyDiscEditForm() {
                             </MenuItem>
                         ))}
                     </TextField>
-                </div>
-                <div>
+                </Box>
+                <Box textAlign='center'>
                     <TextField
                         required
                         id="outlined-required"
@@ -142,8 +181,8 @@ function MyDiscEditForm() {
                         value={mold}
                         onChange={handleMoldChange}
                     />
-                </div>
-                <div>
+                </Box>
+                <Box textAlign='center'>
                     <TextField
                         required
                         id="outlined-select-scale"
@@ -158,21 +197,22 @@ function MyDiscEditForm() {
                             </MenuItem>
                         ))}
                     </TextField>
-                </div>
-
-                <TextField
-                    required
-                    id="outlined-number"
-                    label="Price"
-                    type="number"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    value={price}
-                    onChange={handlePriceChange}
-                />
+                </Box>
+                <Box textAlign='center'>
+                    <TextField
+                        required
+                        id="outlined-number"
+                        label="Price"
+                        type="number"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        value={price}
+                        onChange={handlePriceChange}
+                    />
+                </Box>
             </div>
-            <div>
+            <Box textAlign='center'>
                 <TextField
                     required
                     id="outlined-required"
@@ -181,8 +221,10 @@ function MyDiscEditForm() {
                     value={image}
                     onChange={handleImageChange}
                 />
-            </div>
-            <Button onClick={handleSubmit} variant="contained">Submit</Button>
+            </Box>
+            <Box textAlign='center'>
+                <Button onClick={handleSubmit} variant="contained">Submit</Button>
+            </Box>
         </Box>
 
     )

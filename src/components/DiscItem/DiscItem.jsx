@@ -18,11 +18,11 @@ function DiscItem({ disc }) {
         });
         setTimeout(() => {
             history.push(`/details/${disc.disc_id}`);
-          }, "300")
+          }, 100)
     }
     return (
         <Grid className='Grid' item xs={6}>
-        <li onClick={handleClick} >
+        <li onClick={handleClick}  >
             <p> {disc.manufacturer} {disc.mold}</p>
             {/* <p> {disc.mold}</p> */}
             {/* <p>Sleepy Scale: {disc.sleepy_scale}</p> */}

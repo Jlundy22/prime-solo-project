@@ -25,7 +25,7 @@ function MyDiscItem({ disc }) {
         });
         setTimeout(() => {
             history.push(`/edit/${id}`);
-          }, "300")
+          }, 100)
          
     }
     return (

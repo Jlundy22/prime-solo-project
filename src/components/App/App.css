@@ -129,15 +129,18 @@ ul {
 .Grid {
   outline: auto;
   padding: 0px;
-  margin: 0px;
   cursor: pointer;
   text-align: center;
+
 }
 
 .detailPage {
   padding-top: 50px;
   margin-left: 50px;
+}
 
+.sleepy-text {
+  width: 300px;
 }
 
 .pageHeader {

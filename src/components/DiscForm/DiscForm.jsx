@@ -139,7 +139,7 @@ function DiscForm() {
         //allow time for redux to be set
         setTimeout(() => {
             history.push('/myDiscs');
-          }, "300")
+          }, 100)
         
 
 

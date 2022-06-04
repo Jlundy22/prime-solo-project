@@ -39,9 +39,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: '15ch',
-        },
     },
 }));
 
@@ -49,6 +46,7 @@ function SearchBar({ searchType }) {
     const dispatch = useDispatch();
     const discs = useSelector(store => store.discs);
     const myDiscs = useSelector(store => store.myDiscs);
+    const [searchClicked, setSearchClicked] = React.useState(false);
 
     function handleInputChange() {
         const discArray = [];
@@ -77,8 +75,9 @@ function SearchBar({ searchType }) {
     }
     
     const placeholderText = (searchType === 'searchAll') ? 'Browse All Discs' : 'Browse My Discs';
+    const searchWidth = (searchClicked === false) ? {width: 50} : {width: 250};
     return (
-        <Search >
+        <Search sx={searchWidth}>
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>
@@ -86,6 +85,7 @@ function SearchBar({ searchType }) {
                 placeholder={placeholderText}
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={handleInputChange}
+                onClick={() => setSearchClicked(!searchClicked)}
             />
         </Search>
     )
