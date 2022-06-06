@@ -53,14 +53,14 @@ function SearchBar({ searchType }) {
         if (searchType === "searchAll") {
             for (let i = 0; i < discs.length; i++) {
                 const disc = discs[i];
-                if (disc.mold.toLowerCase().includes(event.target.value)) {
+                if (disc.mold.toLowerCase().includes(event.target.value.toLowerCase())) {
                     discArray.push(disc);
                 }
             }
         } else {
             for (let i = 0; i < myDiscs.length; i++) {
                 const disc = myDiscs[i];
-                if (disc.mold.toLowerCase().includes(event.target.value)) {
+                if (disc.mold.toLowerCase().includes(event.target.value.toLowerCase())) {
                     discArray.push(disc);
                 }
             }

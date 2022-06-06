@@ -131,10 +131,19 @@ function DiscForm() {
             price: Number(price),
             image, 
         };
-        dispatch({
-          type: 'CREATE_DISC_ITEM',
-          payload: newDiscItem 
-        });
+        if (!manufacturer || !sleepyScale || !mold || !price || !image) {
+            alert("Fill in all inputs!");
+            return;
+        } else {
+            dispatch({
+                type: 'CREATE_DISC_ITEM',
+                payload: newDiscItem 
+              }); 
+        }
+        // dispatch({
+        //   type: 'CREATE_DISC_ITEM',
+        //   payload: newDiscItem 
+        // });
         //delaying reroute to my discs to 
         //allow time for redux to be set
         setTimeout(() => {
