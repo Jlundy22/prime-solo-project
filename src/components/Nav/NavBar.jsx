@@ -18,7 +18,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Brightness1Icon from '@mui/icons-material/Brightness1';
 import InfoIcon from '@mui/icons-material/Info';
 import SearchBar from '../SearchBar/SearchBar';
-
+import { useDispatch } from 'react-redux';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -63,6 +63,7 @@ const StyledMenu = styled((props) => (
 
 function NavBar() {
     const history = useHistory();
+    const dispatch = useDispatch();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleProfileClick = () => {
@@ -92,6 +93,10 @@ function NavBar() {
         setAnchorEl(null);
     };
     const handleClick = (event) => {
+        dispatch({
+            type: 'SEARCH_RESULTS',
+            payload: []
+        });
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
@@ -106,6 +111,7 @@ function NavBar() {
         isVisible = true;
         searchType = 'searchAll'
     }
+    
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">

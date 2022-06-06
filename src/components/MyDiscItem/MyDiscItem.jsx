@@ -23,9 +23,13 @@ function MyDiscItem({ disc }) {
             type: 'FETCH_ONE_DISC',
             payload: id
         });
+        dispatch({
+            type: 'SEARCH_RESULTS',
+            payload: []
+        });
         setTimeout(() => {
             history.push(`/edit/${id}`);
-          }, 100)
+        }, 100)
          
     }
     return (

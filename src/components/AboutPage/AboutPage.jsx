@@ -20,6 +20,11 @@ function AboutPage() {
           <li>Node.js</li>
           <li>Express</li>
         </ul>
+        <h4>What's next?</h4>
+        <ul>
+          <li>The ability to hold an auction for your disc.</li>
+          <li>Messaging directly on the app.</li>
+        </ul>
         <h4>Special thanks to</h4>
         <ul>
           <li>Prime Digital Academy</li>
@@ -27,11 +32,7 @@ function AboutPage() {
           <li>Dahl Cohort</li>
           <li>My Friends and Family</li>
         </ul>
-        <h4>What's next?</h4>
-        <ul>
-          <li>The ability to hold an auction for your disc.</li>
-          <li>Messaging directly on the app.</li>
-        </ul>
+        
       </div>
     </div>
   );

@@ -28,7 +28,7 @@ function BrowsePage() {
     const searchResults = useSelector(store => store.searchResults);
 
     const displayResults = (searchResults.length > 0) ? searchResults : discs;
-    const displayNoResults = (searchResults[0] === 'noResults') ? true : false ;
+    const displayNoResults = (searchResults[0] === 'noResults') ? true : false;
 
     return (
         <ul>

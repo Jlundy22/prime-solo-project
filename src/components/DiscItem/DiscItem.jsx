@@ -16,6 +16,10 @@ function DiscItem({ disc }) {
             type: 'SET_EDIT_DISC',
             payload: disc
         });
+        dispatch({
+            type: 'SEARCH_RESULTS',
+            payload: []
+        });
         setTimeout(() => {
             history.push(`/details/${disc.disc_id}`);
           }, 100)
