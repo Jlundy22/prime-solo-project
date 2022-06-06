@@ -132,7 +132,7 @@ function DiscForm() {
             image, 
         };
         if (!manufacturer || !sleepyScale || !mold || !price || !image) {
-            alert("Fill in all inputs!");
+            alert("Fill in all inputs please!");
             return;
         } else {
             dispatch({
