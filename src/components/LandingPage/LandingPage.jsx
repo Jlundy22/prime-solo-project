@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './LandingPage.css';
 import Button from '@mui/material/Button';
 
 // CUSTOM COMPONENTS

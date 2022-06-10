@@ -6,17 +6,11 @@ import {
   Switch,
 } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
-
 import { useDispatch, useSelector } from 'react-redux';
-
-import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -26,7 +20,6 @@ import SearchAppBar from '../Nav/NavBar';
 import MyDiscs from '../MyDiscs/MyDiscs';
 import MyDiscEditForm from '../MyDiscEditForm/MyDiscEditForm';
 import Details from '../Details/Details';
-
 import './App.css';
 
 function App() {
@@ -42,7 +35,7 @@ function App() {
     <React.Fragment>
       <CssBaseline />
       <Router>
-      < SearchAppBar />
+        < SearchAppBar />
         <div>
           {/* <Nav /> */}
           <Switch>
@@ -68,14 +61,6 @@ function App() {
               path="/user"
             >
               <UserPage />
-            </ProtectedRoute>
-
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/info"
-            >
-              <InfoPage />
             </ProtectedRoute>
 
             <ProtectedRoute

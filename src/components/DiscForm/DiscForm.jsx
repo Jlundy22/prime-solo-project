@@ -129,7 +129,7 @@ function DiscForm() {
             sleepyScale,
             mold,
             price: Number(price),
-            image, 
+            image,
         };
         if (!manufacturer || !sleepyScale || !mold || !price || !image) {
             alert("Fill in all inputs please!");
@@ -137,33 +137,24 @@ function DiscForm() {
         } else {
             dispatch({
                 type: 'CREATE_DISC_ITEM',
-                payload: newDiscItem 
-              }); 
+                payload: newDiscItem
+            });
         }
-        // dispatch({
-        //   type: 'CREATE_DISC_ITEM',
-        //   payload: newDiscItem 
-        // });
-        //delaying reroute to my discs to 
-        //allow time for redux to be set
+
         setTimeout(() => {
             history.push('/myDiscs');
-          }, 100)
-        
-
-
-
+        }, 100)
         setManufacturer('');
         setSleepyScale('');
         setMold('');
         setPrice('');
         setImage('');
-      };
-    
+    };
+
 
 
     return (
-        
+
         <Box
             component="form"
             sx={{
@@ -238,9 +229,9 @@ function DiscForm() {
                     onChange={handleImageChange}
                 />
             </div>
-            <Button onClick={handleSubmit}  variant="contained">Submit</Button>
+            <Button onClick={handleSubmit} variant="contained">Submit</Button>
         </Box>
-        
+
     )
 }
 

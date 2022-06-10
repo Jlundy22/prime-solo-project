@@ -1,15 +1,10 @@
 import React from 'react';
 
-// This is one of our simplest components
-// It doesn't have local state,
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is'
-
 function AboutPage() {
   return (
     <div className="container">
       <div>
-         <h1>About</h1>
+        <h1>About</h1>
         <h4>Drop Zone was built with</h4>
         <ul>
           <li>React</li>
@@ -32,7 +27,7 @@ function AboutPage() {
           <li>Dahl Cohort</li>
           <li>My Friends and Family</li>
         </ul>
-        
+
       </div>
     </div>
   );
