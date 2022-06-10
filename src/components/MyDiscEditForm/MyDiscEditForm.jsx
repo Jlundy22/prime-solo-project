@@ -3,11 +3,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-
 
 const manufacturers = [
     {
@@ -139,12 +136,12 @@ function MyDiscEditForm() {
 
         dispatch({
             type: 'EDITED_DISC',
-            payload: newDiscItem 
+            payload: newDiscItem
         });
         setTimeout(() => {
             history.push('/myDiscs');
-          }, 100)
-        
+        }, 100)
+
     };
 
     return (

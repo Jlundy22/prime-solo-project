@@ -4,14 +4,12 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import { useHistory } from 'react-router-dom';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
@@ -111,55 +109,55 @@ function NavBar() {
         isVisible = true;
         searchType = 'searchAll'
     }
-    
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
-                        <div >
-                            <Button
-                                id="demo-customized-button"
-                                aria-controls={open ? 'demo-customized-menu' : undefined}
-                                aria-haspopup="true"
-                                aria-expanded={open ? 'true' : undefined}
-                                variant="contained"
-                                disableElevation
-                                onClick={handleClick}
-                            >
-                                <MenuIcon />
-                            </Button>
-                            <StyledMenu
-                                id="demo-customized-menu"
-                                MenuListProps={{
-                                    'aria-labelledby': 'demo-customized-button',
-                                }}
-                                anchorEl={anchorEl}
-                                open={open}
-                                onClose={handleClose}
-                            >
-                                <MenuItem onClick={handleSellDiscClick} disableRipple>
-                                    <AttachMoneyIcon />
-                                    Sell Disc
-                                </MenuItem>
-                                <MenuItem onClick={handleBrowseClick} disableRipple>
-                                    <ShoppingBagIcon />
-                                    Browse
-                                </MenuItem>
-                                <Divider sx={{ my: 0.5 }} />
-                                <MenuItem onClick={handleAboutClick} disableRipple>
-                                    <InfoIcon />
-                                    About
-                                </MenuItem>
-                                <MenuItem onClick={handleProfileClick} disableRipple>
-                                    <AccountBoxIcon />
-                                    Profile
-                                </MenuItem>
-                                <MenuItem onClick={handleMyDiscsClick} disableRipple>
-                                    <Brightness1Icon />
-                                    My Discs
-                                </MenuItem>
-                            </StyledMenu>
-                        </div>
+                    <div >
+                        <Button
+                            id="demo-customized-button"
+                            aria-controls={open ? 'demo-customized-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            variant="contained"
+                            disableElevation
+                            onClick={handleClick}
+                        >
+                            <MenuIcon />
+                        </Button>
+                        <StyledMenu
+                            id="demo-customized-menu"
+                            MenuListProps={{
+                                'aria-labelledby': 'demo-customized-button',
+                            }}
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={handleSellDiscClick} disableRipple>
+                                <AttachMoneyIcon />
+                                Sell Disc
+                            </MenuItem>
+                            <MenuItem onClick={handleBrowseClick} disableRipple>
+                                <ShoppingBagIcon />
+                                Browse
+                            </MenuItem>
+                            <Divider sx={{ my: 0.5 }} />
+                            <MenuItem onClick={handleAboutClick} disableRipple>
+                                <InfoIcon />
+                                About
+                            </MenuItem>
+                            <MenuItem onClick={handleProfileClick} disableRipple>
+                                <AccountBoxIcon />
+                                Profile
+                            </MenuItem>
+                            <MenuItem onClick={handleMyDiscsClick} disableRipple>
+                                <Brightness1Icon />
+                                My Discs
+                            </MenuItem>
+                        </StyledMenu>
+                    </div>
                     <Typography
                         className='Typography'
                         variant="h6"
@@ -170,7 +168,7 @@ function NavBar() {
                         Drop Zone
                     </Typography>
                     {isVisible &&
-                     <SearchBar searchType={searchType}/>
+                        <SearchBar searchType={searchType} />
                     }
                 </Toolbar>
             </AppBar>
