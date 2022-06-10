@@ -5,9 +5,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 const router = express.Router();
 
-/**
- * GET route template
- */
 router.get('/', rejectUnauthenticated, (req, res) => {
   const sqlQuery = `
     SELECT * FROM discs
@@ -23,7 +20,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.post('/', rejectUnauthenticated,(req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   if (req.isAuthenticated()) {
     const sqlQuery = `
     INSERT INTO "discs" (

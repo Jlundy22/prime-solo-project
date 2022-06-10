@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 
-router.get('/:id',rejectUnauthenticated,  (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   const sqlQuery = `
   SELECT * FROM discs
   JOIN "user" ON discs.seller_id = "user".id
@@ -24,9 +24,9 @@ router.get('/:id',rejectUnauthenticated,  (req, res) => {
 });
 
 
-  router.put('/:id',rejectUnauthenticated, (req, res) => {
-    console.log(req.body)
-    const sqlText = `
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+  console.log(req.body)
+  const sqlText = `
     UPDATE "discs" 
     SET
     "manufacturer" = $1,
@@ -36,24 +36,24 @@ router.get('/:id',rejectUnauthenticated,  (req, res) => {
     "img_path" = $5
     WHERE "disc_id" = $6;
     `;
-    const sqlValues = [
-      req.body.manufacturer,
-      req.body.mold,
-      req.body.sleepyScale,
-      req.body.price,
-      req.body.image,
-      Number(req.params.id)
-    ];
-    
-    pool.query(sqlText, sqlValues)
-      .then((dbRes) => {
-        res.sendStatus(200);
-      })
-      .catch((dbErr) => {
-        console.log('UPDATE database error', dbErr);
-        res.sendStatus(500);
-      });
-  });
+  const sqlValues = [
+    req.body.manufacturer,
+    req.body.mold,
+    req.body.sleepyScale,
+    req.body.price,
+    req.body.image,
+    Number(req.params.id)
+  ];
+
+  pool.query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(200);
+    })
+    .catch((dbErr) => {
+      console.log('UPDATE database error', dbErr);
+      res.sendStatus(500);
+    });
+});
 
 
 module.exports = router;
