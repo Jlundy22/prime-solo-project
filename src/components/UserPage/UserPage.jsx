@@ -1,7 +1,6 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
 

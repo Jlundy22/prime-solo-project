@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 
@@ -65,17 +65,17 @@ function SearchBar({ searchType }) {
                 }
             }
         }
-        if (discArray.length === 0 ) {
+        if (discArray.length === 0) {
             discArray.push('noResults');
-         }
+        }
         dispatch({
             type: 'SEARCH_RESULTS',
             payload: discArray
         });
     }
-    
+
     const placeholderText = (searchType === 'searchAll') ? 'Browse All Discs' : 'Browse My Discs';
-    const searchWidth = (searchClicked === false) ? {width: 50} : {width: 250};
+    const searchWidth = (searchClicked === false) ? { width: 50 } : { width: 250 };
     return (
         <Search sx={searchWidth}>
             <SearchIconWrapper>
